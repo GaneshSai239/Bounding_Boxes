@@ -6,7 +6,6 @@ import os
 
 def segmentation(image):
     SelfieSegmentation = mp.solutions.selfie_segmentation.SelfieSegmentation
-    SelfieSegmentation = mp.solutions.selfie_segmentation.SelfieSegmentation
     selfie_segmentation = SelfieSegmentation(model_selection=1)
     results = selfie_segmentation.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
     mask =results.segmentation_mask> 0.3
