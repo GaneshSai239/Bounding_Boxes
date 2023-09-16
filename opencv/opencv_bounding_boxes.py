@@ -6,8 +6,8 @@ def cv_bbox(image):
     gray = cv2.cvtColor(image, cv2.IMREAD_GRAYSCALE)
     edges = cv2.Canny(gray, 80, 255, apertureSize=3)
     kernal = cv2.getStructuringElement(cv2.MORPH_RECT, (3,3))
-    eroison =cv2.dilate(edges,kernal,iterations = 3)
-    lines = cv2.HoughLinesP(eroison, 1, np.pi / 180, 100, minLineLength=500, maxLineGap=10)
+    dilate =cv2.dilate(edges,kernal,iterations = 3)
+    lines = cv2.HoughLinesP(dilate, 1, np.pi / 180, 100, minLineLength=500, maxLineGap=10)
     min_x = float('inf')
     min_y = float('inf')
     max_x = 0
